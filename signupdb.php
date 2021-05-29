@@ -21,9 +21,9 @@ if(isset($_POST['submit'])){
 	else{
 	$sql = "INSERT INTO hospital_register(name,address,email,password,contact) VALUES('$name','$address','$email','$password','$contact')";
 	 mysqli_query($db,$sql);
-	 //$_SESSION['message'] =  "You are now logged in";
-	 //$_SESSION['name'] = $name;
-	// header("Location:index.php");
+	 $_SESSION['message'] =  "You are now logged in";
+	$_SESSION['email'] = $email;
+	 header("Location:hospital.php");
  	}
 }
 ?>

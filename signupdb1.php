@@ -22,9 +22,9 @@ if(isset($_POST['submit'])){
 	else{
 	$sql = "INSERT INTO receiver_register(name,address,age,bloodgroup,email,password,contact) VALUES('$name','$address','$age','$bloodgroup','$email','$password','$contact')";
 	 mysqli_query($db,$sql);
-	 //$_SESSION['message'] =  "You are now logged in";
-	 //$_SESSION['name'] = $name;
-	// header("Location:index.php");
+	 $_SESSION['message'] =  "You are now logged in";
+	 $_SESSION['email'] = $email;
+ header("Location:receiver.php");
  	}
 }
 ?>

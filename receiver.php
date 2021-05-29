@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,7 +15,8 @@
 </head>
 <body>
 	<?php
-require 'navbar1.php';
+
+require 'nav1.php';
 ?>
 <center>
 	<h1>Blood Bank System</h1>

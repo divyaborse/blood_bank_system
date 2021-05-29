@@ -29,11 +29,27 @@ require 'navbar.php';
     <?php
     
     require "connection.php";
+//session_start();
+$email =  $_SESSION['email']; 
+$sql1 = "select * from hospital_register where email = '$email'"; 
+$result1 = mysqli_query($db,$sql1) or die(mysqli_error($db));
+        global $value;
+  if(mysqli_num_rows($result1) >=1){
+ while($rowb = mysqli_fetch_array($result1)){ 
+$value =$rowb['id'];
+
+
+
+}
+
+} 
+//echo $value;    
+
     $sum = 0;
   $id = 0;
       $db = mysqli_connect("localhost","root","","bloodbanksystem");
 
-    $sql = "SELECT receiver_register.name as Name,receiver_register.address as Address,receiver_register.age as Age,receiver_register.email as Email,receiver_register.contact as Contact,add_info.id as id,add_info.bloodgroup as BloodGroup,add_info.bagsize as Bagsize,add_info.price as Price from receiver_register inner join add_info on add_info.user_id = receiver_register.id where add_info.user_id = receiver_register.id and add_info.status= 'Requested'";
+    $sql = "SELECT receiver_register.name as Name,receiver_register.address as Address,receiver_register.age as Age,receiver_register.email as Email,receiver_register.contact as Contact,add_info.id as id,add_info.bloodgroup as BloodGroup,add_info.bagsize as Bagsize, add_info.price as Price from receiver_register inner join add_info on add_info.user_id = receiver_register.id where add_info.user_id = receiver_register.id and add_info.status= 'Requested' and add_info.hospital_id = $value";
     $result =mysqli_query($db,$sql) or die(mysqli_error($db));
     if(mysqli_num_rows($result) >=1){
 
@@ -89,7 +105,10 @@ echo '
     ?>  
     </tbody>
     <?php 
-}    
+} 
+   else{
+echo "<center><h2 style='background-color:Tomato;'>No blood samples are added</h2></center>";
+}   
 ?>
   </table>
 </div>

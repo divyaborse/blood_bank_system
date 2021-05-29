@@ -1,3 +1,6 @@
+<?php
+require "navbar1.php";
+?>	
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,9 +14,7 @@
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-<?php
-require "navbar1.php";
-?>	
+
 <center>
 	<h1>Blood Bank System</h1>
 <div class="container">
@@ -26,24 +27,25 @@ require "navbar1.php";
   	<?php
   	include "connection.php";
   	//session_start();
-  	$user_id = $_SESSION['id'];
-//  	echo $user_id;
+  	$user_email= $_SESSION['email'];
+//echo $user_email;
   	$sum = 0;
   $id = 0;
   		$db = mysqli_connect("localhost","root","","bloodbanksystem");
-$bloodgroup = "SELECT * from receiver_register where id = $user_id ";
+$bloodgroup = "SELECT * from receiver_register where email = '$user_email'";
   			$result1 = mysqli_query($db,$bloodgroup) or die(mysqli_error($db));
   			global $value;
+  			global $user_id;
  	if(mysqli_num_rows($result1) >=1){
  while($rowb = mysqli_fetch_array($result1)){ 
 $value =$rowb['bloodgroup'];
 
-
-
+$user_id = $rowb['id'];
+$_SESSION['id'] = $user_id;
 }
 
 }			
-//echo $value;
+//echo $user_id;
 
 	$sql = "SELECT hospital_register.name as Name ,add_info.id as ID,
    hospital_register.email as Email,add_info.bloodgroup as BloodGroup,add_info.hospital_id as hosptial_id,add_info.bagsize as Bagsize,add_info.price as Price  FROM add_info inner join hospital_register on add_info.hospital_id = hospital_register.id where add_info.hospital_id=hospital_register.id and add_info.status != 'requested' and add_info.bloodgroup = '$value'";

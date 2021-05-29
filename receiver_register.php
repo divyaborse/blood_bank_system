@@ -1,4 +1,6 @@
-
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,7 +17,7 @@
 </head>
 <body>
   <?php
-require 'navbar1.php';
+require 'nav1.php';
 ?>
 <script>
   function validate(){

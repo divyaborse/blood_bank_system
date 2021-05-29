@@ -1,6 +1,4 @@
-<?php
-require "navbar1.php";
-?>
+
 <nav class="navbar navbar-expand-md bg-dark navbar-dark">
   <a class="navbar-brand" href="index.php">Blood Bank System</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
@@ -11,8 +9,8 @@ require "navbar1.php";
 
       
               <?php
-           if(isset($_SESSION['username'])){
-             echo '<a class="nav-link" href="receiver_option.php.php"><span class="fa fa-heartbeat"></span> Request for blood samples</a></li>';
+           if(isset($_SESSION['email'])){
+             echo '<a class="nav-link" href="receiver_option.php"><span class="fa fa-heartbeat"></span> Request for blood samples</a></li>';
          
 
 

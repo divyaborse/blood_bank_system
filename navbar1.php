@@ -11,7 +11,7 @@ session_start();
 
       
               <?php
-           if(isset($_SESSION['username'])){
+           if(isset($_SESSION['email'])){
              echo '<a class="nav-link" href="receiver_option.php"><span class="fa fa-heartbeat"></span> Request for blood samples</a></li>';
          
 
