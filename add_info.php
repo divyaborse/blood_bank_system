@@ -28,7 +28,7 @@ $_SESSION['id'] = $user_id;
 	$price = mysqli_real_escape_string($db,$_POST['price']);
 	$sql = "INSERT INTO add_info(hospital_id,bloodgroup,bagsize,price) VALUES('$hospital_id','$bloodgroup','$bagsize','$price')";
 	mysqli_query($db,$sql) or die(mysqli_error($db));
-	header("location:add.php");
+	header("location:hospital.php");
 
 
 }

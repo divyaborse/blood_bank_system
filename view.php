@@ -107,7 +107,7 @@ echo '
     <?php 
 } 
    else{
-echo "<center><h2 style='background-color:Tomato;'>No blood samples are added</h2></center>";
+echo "<center><h2 style='background-color:Tomato;'>No blood samples are requested</h2></center>";
 }   
 ?>
   </table>

@@ -17,6 +17,7 @@ session_start();
 	<?php
 
 require 'nav1.php';
+
 ?>
 <center>
 	<h1>Blood Bank System</h1>
@@ -25,8 +26,13 @@ require 'nav1.php';
   
  
  <div class="container">
-  
-  <br><br>            
+ 	  <br>     
+<?php 
+if(!isset($_SESSION['email'])){
+	echo '<center><h2 style="background-color:Tomato;">Login/register to request for blood samples</h2></center>';
+}
+?>  
+ 
   <table class="table table-striped table-bordered">
 
   	<?php
@@ -37,7 +43,7 @@ require 'nav1.php';
   	$sql = "SELECT hospital_register.name as Name , hospital_register.email as Email,add_info.bloodgroup as BloodGroup,add_info.hospital_id as id,add_info.bagsize as Bagsize,add_info.price as Price FROM add_info inner join hospital_register on add_info.hospital_id = hospital_register.id where add_info.hospital_id=hospital_register.id and add_info.status = ''";
   	$result =mysqli_query($db,$sql) or die(mysqli_error($db));
   	if(mysqli_num_rows($result) >=1){
-echo '<center><h2 style="background-color:Tomato;">Login/register to request for blood samples</h2></center>';
+
   	?>
     <thead>
       <tr>

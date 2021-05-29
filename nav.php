@@ -9,7 +9,7 @@
 
       
               <?php
-           if(isset($_SESSION['username'])){
+           if(isset($_SESSION['email'])){
              echo '<a class="nav-link" href="add.php"><span class="fa fa-plus"></span> Add blood information</a></li>';
             echo '<a class="nav-link" href="view.php"><span class="fa fa-heartbeat"></span> View blood requests</a></li>';
 
